@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <title>Orpheus Airways</title>
+</head>
+<body>
+<script src="main.js"></script>
+<div id="header">
+    <img id="logo" src="logo.png">
+    Orpheus Airways
+</div>
+<div id="body">
+    <div id="container">
+        <div id="selector">
+            <button>
+                Book flight
+            </button>
+            <button>
+                My trips
+            </button>
+            <button>
+                Check-in
+            </button>
+            <button>
+                Flight status
+            </button>
+        </div>
+        <div id="main">
+            <div>
+                <p>Leaving from</p>
+                <input type="text" id="departure-search" placeholder="Select Departure" autocomplete="off">
+                <div id="departure-dropdown" class="dropdown"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
