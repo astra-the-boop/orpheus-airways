@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <title>Orpheus Airways</title>
 </head>
 <body>
@@ -17,25 +15,25 @@
 <div id="body">
     <div id="container">
         <div id="selector">
-            <button>
-                Book flight
-            </button>
-            <button>
+            <button class="active">Book flight</button><button>
                 My trips
-            </button>
-            <button>
+            </button><button>
                 Check-in
-            </button>
-            <button>
+            </button><button>
                 Flight status
             </button>
         </div>
         <div id="main">
-            <div>
-                <p>Leaving from</p>
-                <input type="text" id="departure-search" placeholder="Select Departure" autocomplete="off">
-                <div id="departure-dropdown" class="dropdown"></div>
+            <div id="destination-select-container">
+                <div class="departure-picker">
+                    <p>Leaving from</p>
+                    <input type="text" id="departure-search" placeholder="Select Departure" autocomplete="off">
+                    <div id="departure-dropdown" class="dropdown"></div>
+                </div>
+                <svg id="swap-locations" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="transfer-horizontal" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="40" height="40"><path d="M9.12225 6.53825C9.54652 6.18469 9.6038 5.5541 9.25024 5.12983C8.89669 4.70557 8.26616 4.64822 7.8419 5.00178L7.84062 5.00291C6.2321 6.02001 5.23211 7.02 3.64067 8.96654C3.42249 9.27778 3.23205 9.62987 3.23206 10.02C3.23207 10.4102 3.42249 10.7623 3.6407 11.0736C5.23205 13.02 6.23204 14.02 7.84145 15.0379C8.30822 15.3331 8.89671 15.3345 9.25028 14.9102C9.60384 14.4859 9.54652 13.8554 9.12226 13.5018L8.96021 13.3667C7.81237 12.4095 7.12288 11.8346 6.30559 11.02L6.30559 11.0179H16V11.0146C20 11.0146 20 11.5146 20 13.0126V13.0166C20 14.5146 20 15.0146 16 15.0146C10.857 15.0146 9.99997 16.0146 9.99997 19.0146C9.99997 21.7806 11.275 22.8466 15 22.9956C15.3155 23.0086 15.6577 23.0149 16 23.0153V23.0166H25.6944L25.6944 23.0187C24.8771 23.8332 24.1876 24.4082 23.0398 25.3653L23.0397 25.3654L22.8777 25.5005C22.4534 25.8541 22.3961 26.4846 22.7497 26.9089C23.1032 27.3332 23.6917 27.3318 24.1585 27.0366C25.7679 26.0187 26.7679 25.0187 28.3592 23.0722C28.5774 22.761 28.7679 22.4089 28.7679 22.0187C28.7679 21.6286 28.5775 21.2765 28.3593 20.9652C26.7678 19.0187 25.7678 18.0187 24.1593 17.0016L24.158 17.0005C23.7338 16.6469 23.1033 16.7043 22.7497 17.1285C22.3961 17.5528 22.4534 18.1834 22.8777 18.5369L23.1225 18.7417C24.2026 19.6451 24.8875 20.218 25.6908 21.0166H16V21.0146C12.75 21.0146 12 21.0146 12 19.0146C12 17.0146 12.606 17.0146 16 17.0146C21.143 17.0146 22 16.2146 22 13.0146C22 10.0646 20.725 9.15463 17 9.02963C16.6845 9.01913 16.3422 9.01388 16 9.01388V9.01787H6.30917C7.11245 8.2193 7.79731 7.64641 8.87746 6.74303L9.12225 6.53825Z"/></svg>
+
             </div>
+
         </div>
     </div>
 </div>

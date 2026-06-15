@@ -1,10 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-    new Choices("#departure-select", {
-        searchEnabled: true,
-        itemSelectText: "",
-        shouldSort: false
-    });
-
     const airports = [
             {
                 iata: "LTA",
@@ -43,5 +37,44 @@ window.addEventListener('DOMContentLoaded', () => {
                 iata: "BTV",
                 name: "Burlington, VT"
             }
-        ]
+        ];
+
+    const departureSearch = document.getElementById("departure-search");
+    const departureDropdown = document.getElementById("departure-dropdown");
+
+    function renderResults(query = ""){
+        departureDropdown.innerHTML = "";
+        const matches = airports.filter(a =>
+            `${a.iata} ${a.name}`.toLowerCase().includes(query.toLowerCase()));
+        matches.forEach(airport => {
+            const item = document.createElement("div");
+            item.className = "dropdown-item";
+
+            item.innerHTML = `
+            <b>${airport.iata}</b> – ${airport.name}`;
+
+            item.addEventListener("click", () => {
+                departureSearch.value = `${airport.iata} – ${airport.name}`;
+                departureDropdown.style.display = "none";
+            });
+
+            departureDropdown.appendChild(item);
+        });
+
+        departureDropdown.style.display = matches.length ? "block" : "none";
+    }
+
+    departureSearch.addEventListener("focus", () => {
+        renderResults(departureSearch.value);
+    });
+
+    departureSearch.addEventListener("input", () => {
+        renderResults(departureSearch.value);
+    });
+
+    document.addEventListener("click", e => {
+        if(!e.target.closest(".departure-picker")){
+            departureDropdown.style.display = "none";
+        }
+    })
 });
