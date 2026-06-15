@@ -65,7 +65,8 @@ body{
     padding: 0.5rem 0 0 0.1rem;
 }
 
-.departure-picker p{
+.departure-picker p,
+.arrival-picker p{
     margin-top: 1rem;
     margin-bottom: 0;
     line-height: 1.5rem;
@@ -73,14 +74,27 @@ body{
     font-size: 1.4rem;
 }
 
-#departure-search{
+.arrival-picker p{
+    margin-left: 1.2rem;
+}
+
+#departure-search,
+#arrival-search{
     all: unset;
     color: #EC3750;
     font-size: 2.8rem;
     width: 37vw;
     margin: 0;
-    border-right: 3px solid #f195a1;
     cursor: pointer;
+}
+
+#departure-search{
+    border-right: 3px solid #f195a1;
+}
+
+#arrival-search{
+    border-left: 3px solid #f195a1;
+    padding-left: 1rem;
 }
 
 #destination-select-container{
@@ -134,6 +148,10 @@ body{
     width: 9rem;
 }
 
-#selector button.active, #selector button:active{
+#selector button.active{
     background-color: #FCFCF7;
+}
+
+#selector button:active{
+    background-color: #e1a5ad;
 }
