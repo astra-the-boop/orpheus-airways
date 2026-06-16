@@ -93,5 +93,38 @@ window.addEventListener('DOMContentLoaded', () => {
         const arrival = document.getElementById("arrival-search");
         
         [departure.value, arrival.value] = [arrival.value, departure.value];
+    });
+
+    const routeInput = document.getElementById("route-type-input");
+    const routeDropdown = document.getElementById("route-type-dropdown");
+
+    routeDropdown.style.display = "none";
+
+    routeInput.addEventListener("click", ()=>{
+        if(routeDropdown.style.display === "none"){
+            routeDropdown.style.display = "block";
+        }else{
+            routeDropdown.style.display = "none";
+        }
+    });
+
+    routeDropdown.querySelectorAll(".dropdown-item").forEach(item => {
+        item.addEventListener("click", ()=>{
+            routeInput.value = item.textContent.trim();
+            routeInput.dataset.value = item.dataset.value;
+            routeDropdown.style.display="none";
+            routeInput.classList.add("selected");
+            if(routeInput.dataset.value === "one"){
+                routeInput.innerText = "One way";
+            }else{
+                routeInput.innerText = "Round trip";
+            }
+        })
+    });
+
+    document.addEventListener("click", (e) => {
+        if(!e.target.closest(".type-picker")){
+            routeDropdown.style.display = "none";
+        }
     })
 });

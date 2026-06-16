@@ -67,7 +67,9 @@ body{
 }
 
 .departure-picker p,
-.arrival-picker p{
+.arrival-picker p,
+.type-picker p,
+.class-picker p{
     margin-top: 1rem;
     margin-bottom: 0;
     line-height: 1.5rem;
@@ -75,12 +77,15 @@ body{
     font-size: 1.4rem;
 }
 
-.arrival-picker p{
+.arrival-picker p,
+.class-picker p{
     margin-left: 1.2rem;
 }
 
 #departure-search,
-#arrival-search{
+#arrival-search,
+#route-type-input,
+#class-input{
     all: unset;
     color: #EC3750;
     font-size: 2.8rem;
@@ -89,11 +94,18 @@ body{
     cursor: pointer;
 }
 
+#route-type-input{
+    width: 37vw;
+    display: block;
+    border-right: 3px solid #f195a1
+}
+
 #departure-search{
     border-right: 3px solid #f195a1;
 }
 
-#arrival-search{
+#arrival-search,
+#class-input{
     border-left: 3px solid #f195a1;
     padding-left: 1rem;
 }
@@ -112,7 +124,8 @@ body{
 }
 
 #departure-dropdown,
-#arrival-dropdown{
+#arrival-dropdown,
+#route-type-dropdown{
     display: none;
     color: #ec3750;
     font-size: 1.3rem;
@@ -143,28 +156,38 @@ body{
     all: unset;
     cursor: pointer;
     background-color: #f4aab5;
-    color: #ec3750;
+    color: #FCFCF7;
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     border-radius: 1rem 1rem 0 0;
     margin: 0;
-    border-top: 2px solid #ec3750;
-    border-left: 2px solid #ec3750;
-    border-right: 2px solid #ec3750;
+    border-top: 2px solid #FCFCF7;
+    border-left: 2px solid #fcfcf7;
+    border-right: 2px solid #fcfcf7;
     width: 9rem;
 }
 
 #selector button.active{
     background-color: #FCFCF7;
+    color: #ec3750;
+    border-top: 3px solid #ec3750;
+    border-left: 3px solid #ec3750;
+    border-right: 3px solid #ec3750;
 }
 
 #selector button:active{
     background-color: #e1a5ad;
 }
 
+#selector button.active:active{
+    background-color: #FBFBF6;
+}
+
 .airport-picker,
 .departure-picker,
-.arrival-picker{
+.arrival-picker,
+.type-picker,
+.class-picker{
     position: relative;
 }
 
@@ -211,4 +234,18 @@ body{
     padding: 2rem;
     text-align: right;
     margin-right: 2rem;
+}
+
+#route-type-dropdown{
+    width: 37vw;
+    height: auto;
+}
+
+#flight-type{
+    display: flex;
+    gap: 1vw;
+}
+
+.gap-block{
+    width: 40px;
 }
