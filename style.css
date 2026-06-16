@@ -60,7 +60,8 @@ body{
 }
 
 #container{
-    background-color: #FCFCF7;
+    /*background-color: #FCFCF7;*/
+    background: linear-gradient(1deg, rgba(252, 252, 247, 1) 65%, rgba(250, 102, 122, 1) 100%);
     border-radius: 1rem;
     padding: 0.5rem 0 0 0.1rem;
 }
@@ -110,7 +111,8 @@ body{
     cursor: pointer;
 }
 
-#departure-dropdown{
+#departure-dropdown,
+#arrival-dropdown{
     display: none;
     color: #ec3750;
     font-size: 1.3rem;
@@ -120,6 +122,10 @@ body{
     border-radius: 0 0 1rem 1rem;
     height: 15rem;
     overflow-y: scroll;
+}
+
+#arrival-dropdown{
+    margin-left: 1.2rem;
 }
 
 .dropdown-item{
@@ -154,4 +160,55 @@ body{
 
 #selector button:active{
     background-color: #e1a5ad;
+}
+
+.airport-picker,
+.departure-picker,
+.arrival-picker{
+    position: relative;
+}
+
+.dropdown{
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background: #dddddd;
+    border: solid 2px #dddddd;
+
+    z-index: 100;
+    display: none;
+
+    box-shadow: #cc8088 5px 5px 5px;
+}
+
+#banner{
+    height: 25rem;
+    background: linear-gradient(0deg,  rgba(235, 109, 122, 1) 0%, rgba(235, 148, 152, 0) 35%), url("img/airbus-a380.jpg") center;
+    background-size: cover;
+    font-family: 'Phantom Sans', sans-serif;
+    color: #00205B;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#banner h1{
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+#banner p{
+    font-size: 1.3rem;
+}
+
+#banner-content-box{
+    background-color: rgba(256, 256, 256, 0.8);
+    width: 23rem;
+    padding: 2rem;
+    text-align: right;
+    margin-right: 2rem;
 }

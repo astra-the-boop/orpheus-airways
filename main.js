@@ -39,42 +39,59 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         ];
 
-    const departureSearch = document.getElementById("departure-search");
-    const departureDropdown = document.getElementById("departure-dropdown");
+    function airportSelector(inputId, dropdownId, pickerClass){
+        const search = document.getElementById(inputId);
+        const dropdown = document.getElementById(dropdownId);
 
-    function renderResults(query = ""){
-        departureDropdown.innerHTML = "";
-        const matches = airports.filter(a =>
-            `${a.iata} ${a.name}`.toLowerCase().includes(query.toLowerCase()));
-        matches.forEach(airport => {
-            const item = document.createElement("div");
-            item.className = "dropdown-item";
+        function renderResults(query = ""){
+            dropdown.innerHTML = "";
 
-            item.innerHTML = `
-            <b>${airport.iata}</b> – ${airport.name}`;
+            const matches = airports.filter(a =>
+                `${a.iata} ${a.name}`.toLowerCase().includes(query.toLowerCase()));
 
-            item.addEventListener("click", () => {
-                departureSearch.value = `${airport.iata} – ${airport.name}`;
-                departureDropdown.style.display = "none";
+            matches.forEach(airport => {
+                const item = document.createElement("div");
+
+                item.className = "dropdown-item";
+
+                item.innerHTML = `<b>${airport.iata} – ${airport.name}`;
+
+                item.addEventListener("click", () => {
+                    search.value = `${airport.iata} – ${airport.name}`;
+
+                    dropdown.style.display = "none";
+                });
+
+                dropdown.appendChild(item);
             });
 
-            departureDropdown.appendChild(item);
+            dropdown.style.display = matches.length ? "block" : "none";
+        }
+
+        search.addEventListener("focus", () => {
+            renderResults(search.value);
         });
 
-        departureDropdown.style.display = matches.length ? "block" : "none";
+        search.addEventListener("input", () => {
+            renderResults(search.value);
+        });
+
+        document.addEventListener("click", e => {
+            if(!e.target.closest(pickerClass)){
+                dropdown.style.display = "none";
+            }
+        });
     }
 
-    departureSearch.addEventListener("focus", () => {
-        renderResults(departureSearch.value);
-    });
+    airportSelector("departure-search", "departure-dropdown", ".departure-picker");
+    airportSelector("arrival-search", "arrival-dropdown", ".arrival-picker");
 
-    departureSearch.addEventListener("input", () => {
-        renderResults(departureSearch.value);
-    });
+    const swapButton = document.getElementById("swap-locations");
 
-    document.addEventListener("click", e => {
-        if(!e.target.closest(".departure-picker")){
-            departureDropdown.style.display = "none";
-        }
+    swapButton.addEventListener("click", (e) => {
+        const departure = document.getElementById("departure-search");
+        const arrival = document.getElementById("arrival-search");
+        
+        [departure.value, arrival.value] = [arrival.value, departure.value];
     })
 });
