@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <title>Orpheus Airways</title>
 </head>
 <body>
 <script src="main.js"></script>
 <div id="header">
-    <img id="logo" src="logo.png">
+    <img id="logo" src="img/logo.png">
     Orpheus Airways
 </div>
 <div id="banner">
@@ -55,11 +58,52 @@
                 <div class="gap-block"></div>
                 <div class="class-picker">
                     <p>Cabin class & Passengers</p>
-                    <div id="class-input">Economy class, 1 Adult</div>
-                    <div id="class-dropdown" class="dropdown"></div>
+                    <div id="class-input">Economy class, 1 Passenger</div>
+                    <div id="class-dropdown" class="dropdown">
+                        <div class="section">
+                            <label>Cabin class</label>
+                            <div class="class-btns">
+                                <button class="class-btn active" data-class="Economy class">Economy</button>
+                                <button class="class-btn" data-class="Premium Economy">Premium Economy</button>
+                                <button class="class-btn" data-class="Business class">Business</button>
+                                <button class="class-btn" data-class="First class">First</button>
+                            </div>
+                        </div>
+                        <div class="section" id="adult-pass">
+                            <label>Adults (12+)</label>
+                            <button class="number-adj-btn minus">–</button><input type="number" class="pass-input" id="adult-count" min="1" value="1"><button class="number-adj-btn plus">+</button>
+                        </div>
+                        <div class="section" id="child-pass">
+                            <label>Children (2-12)</label>
+                            <button class="number-adj-btn minus">–</button><input type="number" class="pass-input" id="children-count" min="0" value="0"><button class="number-adj-btn plus">+</button>
+                        </div>
+                        <div class="section" id="infant-pass">
+                            <label>Infants (2-)</label>
+                            <button class="number-adj-btn minus">–</button><input type="number" class="pass-input" id="infant-count" min="0" value="0"><button class="number-adj-btn plus">+</button>
+                        </div>
+                        <button id="class-done-btn">Done</button>
+                    </div>
                 </div>
             </div>
+            <div id="flight-date">
+                <div class="date-picker">
+                    <p>Travel dates</p>
+                    <input placeholder="Select dates" type="text" readonly class="empty" id="date-input">
+                </div>
+            </div>
+            <div id="search-btn-container">
+                <p>Flights starting from <span>$420</span></p>
+                <button id="search-btn">Search flights</button>
+            </div>
 
+        </div>
+    </div>
+</div>
+<div id="body-2">
+    <h1>Our latest offers</h1>
+    <div id="latest-offers">
+        <div class="destination-card">
+            <img src="">
         </div>
     </div>
 </div>

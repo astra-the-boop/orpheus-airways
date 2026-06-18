@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 item.className = "dropdown-item";
 
-                item.innerHTML = `<b>${airport.iata} – ${airport.name}`;
+                item.innerHTML = `<b>${airport.iata}</b> – ${airport.name}`;
 
                 item.addEventListener("click", () => {
                     search.value = `${airport.iata} – ${airport.name}`;
@@ -116,15 +116,117 @@ window.addEventListener('DOMContentLoaded', () => {
             routeInput.classList.add("selected");
             if(routeInput.dataset.value === "one"){
                 routeInput.innerText = "One way";
+                flatpickr("#date-input", {
+                    mode: "single",
+                    minDate: "today",
+                    dateFormat: "d M Y",
+                    showMonths: 2,
+                    locale: {
+                        rangeSeparator: "  to  "
+                    }
+                });
+
             }else{
                 routeInput.innerText = "Round trip";
+                flatpickr("#date-input", {
+                    mode: "range",
+                    minDate: "today",
+                    dateFormat: "d M Y",
+                    showMonths: 2,
+                    locale: {
+                        rangeSeparator: "  to  "
+                    }
+                });
             }
         })
     });
+
+    const classInput = document.getElementById("class-input");
+    const classDropdown = document.getElementById("class-dropdown");
+
+    classDropdown.style.display = "none";
+
+    classInput.addEventListener("click", ()=>{
+        if(classDropdown.style.display === "none"){
+            classDropdown.style.display = "block";
+        }else{
+            classDropdown.style.display = "none";
+        }
+    });
+
+    let cabin = "Economy class";
+
+    document.querySelectorAll(".class-btn").forEach(button => {
+        button.addEventListener("click", ()=>{
+            document.querySelectorAll(".class-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+            cabin = button.dataset.class;
+        });
+    });
+
+    document.getElementById("class-done-btn").addEventListener("click", () => {
+        const adults = Number(document.getElementById("adult-count").value);
+        const children = Number(document.getElementById("children-count").value);
+        const infants = Number(document.getElementById("infant-count").value);
+
+        const passengers = adults + children + infants;
+
+        classInput.textContent = `${cabin}, ${passengers} Passenger${passengers !== 1 ? "s" : ""}`
+
+        classDropdown.style.display = "none";
+    });
+
+    function passengerPlusMinusBtn(container, btnClass){
+        const cont = document.getElementById(container);
+        const input = cont.querySelector(".pass-input");
+
+        cont.querySelector(`.${btnClass}`).addEventListener("click", ()=>{
+            if(btnClass==="plus"){
+                input.value = Number(input.value) + 1;
+            }else{
+                if(container === "adult-pass"){
+                    if(Number(input.value) > 1){
+                        input.value = Number(input.value) - 1;
+                    }else if(Number(input.value) <= 1){
+                        input.value = 1;
+                    }
+                }else if(container !== "adult-pass"){
+                    if(Number(input.value) > 0){
+                        input.value = Number(input.value) - 1;
+                    }else if(Number(input.value) <=0){
+                        input.value = 0;
+                    }
+                }
+            }
+        })
+    }
+
+    passengerPlusMinusBtn("adult-pass", "plus");
+    passengerPlusMinusBtn("child-pass", "plus");
+    passengerPlusMinusBtn("infant-pass", "plus");
+    passengerPlusMinusBtn("adult-pass", "minus");
+    passengerPlusMinusBtn("child-pass", "minus");
+    passengerPlusMinusBtn("infant-pass", "minus");
 
     document.addEventListener("click", (e) => {
         if(!e.target.closest(".type-picker")){
             routeDropdown.style.display = "none";
         }
-    })
+        if(!e.target.closest(".class-picker")){
+            classDropdown.style.display = "none";
+        }
+    });
+
+    flatpickr("#date-input", {
+        mode: "range",
+        minDate: "today",
+        dateFormat: "d M Y",
+        showMonths: 2,
+        locale: {
+            rangeSeparator: "  to  "
+        }
+    });
 });

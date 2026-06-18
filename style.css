@@ -61,15 +61,16 @@ body{
 
 #container{
     /*background-color: #FCFCF7;*/
-    background: linear-gradient(1deg, rgba(252, 252, 247, 1) 65%, rgba(250, 102, 122, 1) 100%);
+    background: linear-gradient(1deg, rgba(252, 252, 247, 1) 80%, rgba(250, 102, 122, 1) 100%);
     border-radius: 1rem;
-    padding: 0.5rem 0 0 0.1rem;
+    padding: 0.5rem 0 0 0;
 }
 
 .departure-picker p,
 .arrival-picker p,
 .type-picker p,
-.class-picker p{
+.class-picker p,
+.date-picker p{
     margin-top: 1rem;
     margin-bottom: 0;
     line-height: 1.5rem;
@@ -85,7 +86,8 @@ body{
 #departure-search,
 #arrival-search,
 #route-type-input,
-#class-input{
+#class-input,
+#date-input{
     all: unset;
     color: #EC3750;
     font-size: 2.8rem;
@@ -94,7 +96,8 @@ body{
     cursor: pointer;
 }
 
-#route-type-input{
+#route-type-input,
+date-input{
     width: 37vw;
     display: block;
     border-right: 3px solid #f195a1
@@ -125,7 +128,8 @@ body{
 
 #departure-dropdown,
 #arrival-dropdown,
-#route-type-dropdown{
+#route-type-dropdown,
+#class-dropdown{
     display: none;
     color: #ec3750;
     font-size: 1.3rem;
@@ -137,7 +141,8 @@ body{
     overflow-y: scroll;
 }
 
-#arrival-dropdown{
+#arrival-dropdown,
+#class-dropdown{
     margin-left: 1.2rem;
 }
 
@@ -160,7 +165,7 @@ body{
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     border-radius: 1rem 1rem 0 0;
-    margin: 0;
+    margin: 0 0.2rem 0 0;
     border-top: 2px solid #FCFCF7;
     border-left: 2px solid #fcfcf7;
     border-right: 2px solid #fcfcf7;
@@ -175,11 +180,15 @@ body{
     border-right: 3px solid #ec3750;
 }
 
-#selector button:active{
+#selector button:active,
+#selector button:hover,
+#selector button:focus{
     background-color: #e1a5ad;
 }
 
-#selector button.active:active{
+#selector button.active:active,
+#selector button.active:hover,
+#selector button.active:focus {
     background-color: #FBFBF6;
 }
 
@@ -248,4 +257,173 @@ body{
 
 .gap-block{
     width: 40px;
+}
+
+#class-dropdown{
+    padding: 2rem 2rem 1rem 2rem;
+    height: 20.8rem;
+    width: 40vw
+}
+
+#class-dropdown label{
+    margin-bottom: 5rem;
+    font-weight: bold;
+}
+
+#class-dropdown button{
+    all: unset;
+    background-color: #fcfcf7;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    transition: background-color 0.05s ease-in-out;
+}
+
+#class-dropdown button.active{
+    border: 2px solid #EC3750;
+}
+
+#class-dropdown button:hover{
+    background-color: #efbbc2;
+}
+
+.section{
+    margin-bottom: 1rem;
+}
+
+#flight-date{
+    display: flex;
+    gap: 1vw;
+}
+
+#class-dropdown input::-webkit-outer-spin-button,
+#class-dropdown input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#class-dropdown input{
+    all: unset;
+    width: 3rem;
+    background-color: #FCFCF7;
+    padding: 0.3rem;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+
+.number-adj-btn{
+    border: 2px solid #EC3750 !important;
+}
+
+.flatpickr-calendar{
+    font-family: "Phantom Sans", sans-serif;
+    color: #EC3750;
+    background-color: #f8e9eb !important;
+}
+
+.flatpickr-day.startRange,
+.flatpickr-day.selected{
+    border: none;
+    background-color: #EC3750 !important;
+}
+
+.flatpickr-month,
+.flatpickr-months{
+    color: #EC3750 !important;
+}
+
+.flatpickr-weekday{
+    color: #df6273 !important;
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day:hover{
+    box-shadow: -5px 0 0 #f1bfc4 !important;
+    background: #f1bfc4 !important;
+    border: #f1bfc4 !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay{
+    background: #EC3750 !important;
+    border: #EC3750 !important;
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)){
+    -webkit-box-shadow: -10px 0 0 #EC3750 !important;
+    box-shadow: -10px 0 0 #EC3750 !important;
+}
+
+#search-btn{
+    all: unset;
+    background-color: #ec3750;
+    color: #FCFCF7;
+    padding: 0.8rem 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-right: 2vw;
+}
+
+#search-btn:hover{
+    background-color: #d1394f;
+}
+
+#search-btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+#search-btn-container p{
+    font-size: 1.8rem;
+    margin: 0 0 0 0.5rem;
+    color: #666666;
+}
+
+#search-btn-container span{
+    color: #EC3750;
+}
+
+.flatpickr-input{
+    padding-left: 0 !important;
+    width: 70vw;
+}
+
+#date-input{
+    width: 70vw;
+}
+
+#body-2{
+    background: #FCFCF7 linear-gradient(118deg, #F1BFC4 0%, #E3848F 100%);
+    font-family: "Phantom Sans", sans-serif;
+    padding: 3rem 2.5rem;
+}
+
+#body-2 h1{
+    margin: 0;
+    font-size: 2.5rem;
+    color: #57030F;
+}
+
+#latest-offers{
+    display: flex;
 }
