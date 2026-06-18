@@ -421,9 +421,38 @@ date-input{
 #body-2 h1{
     margin: 0;
     font-size: 2.5rem;
-    color: #57030F;
+    color: #a6081e;
 }
 
 #latest-offers{
     display: flex;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    gap: 1rem;
+    overflow-x: scroll
+}
+
+.destination-card{
+    background-color: #f4ece3;
+    width: 18rem;
+}
+
+.destination-card img{
+    width: 18rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.text-part{
+    padding: 1.5rem;
+}
+
+.text-part p{
+    margin: 0;
+    font-size: 1.9rem;
+}
+
+.text-part small{
+    line-height: 2rem;
+    font-size: 1.3rem;
 }
