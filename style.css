@@ -456,3 +456,29 @@ date-input{
     line-height: 2rem;
     font-size: 1.3rem;
 }
+
+#price-predict{
+    display: none;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #57030F;
+    color: #FCFCF7;
+    font-family: "Phantom Sans", sans-serif;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+
+#footer-logo img{
+    height: 4rem;
+    margin-right: -1rem;
+}
+
+#footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 0;
+}

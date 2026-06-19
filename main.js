@@ -39,6 +39,24 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         ];
 
+    function predictPrice(){
+        const predictLine = document.getElementById('price-predict');
+        const departureSearch = document.getElementById('departure-search');
+        const arrivalSearch = document.getElementById('arrival-search');
+        const prediction = document.getElementById("flight-price-prediction");
+
+        if(departureSearch.value.trim() === arrivalSearch.value.trim()){
+            prediction.innerText = "$0"
+        }
+
+        if(departureSearch.value.trim() && arrivalSearch.value.trim()){
+            predictLine.style.display = 'block';
+        }else{
+            predictLine.style.display = 'none';
+        }
+
+    }
+
     function airportSelector(inputId, dropdownId, pickerClass){
         const search = document.getElementById(inputId);
         const dropdown = document.getElementById(dropdownId);
@@ -70,16 +88,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
         search.addEventListener("focus", () => {
             renderResults(search.value);
+            predictPrice();
         });
 
         search.addEventListener("input", () => {
             renderResults(search.value);
+            predictPrice()
         });
 
         document.addEventListener("click", e => {
             if(!e.target.closest(pickerClass)){
                 dropdown.style.display = "none";
             }
+            predictPrice();
         });
     }
 
