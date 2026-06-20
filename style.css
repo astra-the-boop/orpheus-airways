@@ -152,7 +152,8 @@ date-input{
     border-bottom: 2px solid #f6cdd5
 }
 
-#main{
+#book-flights,
+#check-in{
     padding: 0 2rem 2rem;
     margin-top: 1rem;
 }
@@ -399,7 +400,7 @@ date-input{
     color: #666666;
 }
 
-#search-btn-container span{
+#flight-price-prediction{
     color: #EC3750;
 }
 

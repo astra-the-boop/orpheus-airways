@@ -3,39 +3,51 @@ window.addEventListener('DOMContentLoaded', () => {
             {
                 iata: "LTA",
                 name: "Hackpines City / Latta Int'l Airport",
+                city: "Hackpines City"
             },{
                 iata: "HDI",
-                name: "Hackpines City / Heidi Int'l Airport"
+                name: "Hackpines City / Heidi Int'l Airport",
+                city: "Hackpines City"
             },{
                 iata: "LTA / HDI",
-                name: "Hackpines City / All airports"
+                name: "Hackpines City / All airports",
+                city: "Hackpines City"
             },{
                 iata: "PAR",
-                name: "Parmesan"
+                name: "Parmesan",
+                city: "Parmesan"
             },{
                 iata: "SIN",
-                name: "Singapore"
+                name: "Singapore",
+                city: "Singapore"
             },{
                 iata: "JFK",
-                name: "New York, NY / John F. Kennedy Int'l Airport"
+                name: "New York, NY / John F. Kennedy Int'l Airport",
+                city: "New York"
             },{
                 iata: "LGA",
-                name: "New York, NY / LaGuardia Int'l Airport"
+                name: "New York, NY / LaGuardia Int'l Airport",
+                city: "New York"
             },{
                 iata: "JFK / LGA",
-                name: "New York, NY / All airports"
+                name: "New York, NY / All airports",
+                city: "New York"
             }, {
                 iata: "BOS",
-                name: "Boston, MA"
+                name: "Boston, MA",
+                city: "Boston"
             },{
                 iata: "LAX",
-                name: "Los Angeles, CA"
+                name: "Los Angeles, CA",
+                city: "Los Angeles"
             },{
                 iata: "SFO",
-                name: "San Fransisco, CA"
+                name: "San Fransisco, CA",
+                city: "San Fransisco"
             },{
                 iata: "BTV",
-                name: "Burlington, VT"
+                name: "Burlington, VT",
+                city: "Burlington"
             }
         ];
 
@@ -44,13 +56,29 @@ window.addEventListener('DOMContentLoaded', () => {
         const departureSearch = document.getElementById('departure-search');
         const arrivalSearch = document.getElementById('arrival-search');
         const prediction = document.getElementById("flight-price-prediction");
+        const flightsStartingFrom = document.getElementById('flights-starting-from');
+        const dateInput = document.getElementById('date-input');
 
-        if(departureSearch.value.trim() === arrivalSearch.value.trim()){
-            prediction.innerText = "$0"
-        }
+        const departureAirport = airports.find(
+            airport => `${airport.iata} – ${airport.name}`.trim() === departureSearch.value.trim()
+        );
 
-        if(departureSearch.value.trim() && arrivalSearch.value.trim()){
+        const arrivalAirport = airports.find(
+            airport => `${airport.iata} – ${airport.name}`.trim() === arrivalSearch.value.trim()
+        );
+
+
+        flightsStartingFrom.innerText = "Flights starting from ";
+
+        if(departureAirport && arrivalAirport && dateInput.value.trim()){
             predictLine.style.display = 'block';
+
+            if(departureAirport.city === arrivalAirport.city){
+                prediction.innerText = "No flights available";
+                flightsStartingFrom.innerText = "";
+            }else{
+                prediction.innerText = "$420"
+            }
         }else{
             predictLine.style.display = 'none';
         }
@@ -250,4 +278,14 @@ window.addEventListener('DOMContentLoaded', () => {
             rangeSeparator: "  to  "
         }
     });
+
+    document.querySelectorAll(".tab-selector").forEach(button => {
+        button.addEventListener("click", ()=>{
+            document.querySelectorAll(".tab-selector").forEach(btn => {
+                btn.classList.remove("active");
+            });
+            button.classList.add("active");
+            console.log(button.id);
+        })
+    })
 });

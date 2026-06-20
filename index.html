@@ -24,15 +24,13 @@
 <div id="body">
     <div id="container">
         <div id="selector">
-            <button class="active">Book flight</button><button>
-                My trips
-            </button><button>
+            <button class="tab-selector active" id="tab-selector-book-flight">Book flight</button><button class="tab-selector" id="tab-selector-check-in">
                 Check-in
-            </button><button>
+            </button><button class="tab-selector" id="tab-selector-flight-status">
                 Flight status
             </button>
         </div>
-        <div id="main">
+        <div id="book-flights">
             <div id="destination-select-container">
                 <div class="departure-picker">
                     <p>Leaving from</p>
@@ -92,11 +90,12 @@
                 </div>
             </div>
             <div id="search-btn-container">
-                <div><p id="price-predict">Flights starting from <span id="flight-price-prediction">$420</span></p></div>
+                <div><p id="price-predict"><span id="flights-starting-from">Flights starting from </span><span id="flight-price-prediction">$420</span></p></div>
                 <button id="search-btn">Search flights</button>
             </div>
 
         </div>
+        <div id="check-in"></div>
     </div>
 </div>
 <div id="body-2">
