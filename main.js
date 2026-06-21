@@ -286,6 +286,59 @@ window.addEventListener('DOMContentLoaded', () => {
             });
             button.classList.add("active");
             console.log(button.id);
+            const buttonClicked = button.id;
+
+            document.querySelectorAll(".section-thing").forEach(section => {
+                section.style.display = "none";
+            });
+            if(buttonClicked === "tab-selector-book-flight"){
+                document.getElementById("book-flights").style.display = "block";
+            }else if(buttonClicked === "tab-selector-check-in"){
+                document.getElementById("check-in").style.display = "block";
+            }else if(buttonClicked === "tab-selector-flight-status"){
+                document.getElementById("flight-status").style.display = "block";
+            }
         })
-    })
+    });
+
+    const searchByInput = document.getElementById("search-by-input");
+    const searchByDropdown = document.getElementById("search-by-dropdown");
+
+    const codeSection = document.getElementById("search-by-code");
+    const routeSection = document.getElementById("search-by-route");
+
+    searchByInput.addEventListener("click", ()=>{
+        if(searchByDropdown.style.display === "block"){
+            searchByDropdown.style.display = "none";
+        }else{
+            searchByDropdown.style.display = "block";
+        }
+    });
+
+    searchByDropdown.querySelectorAll(".dropdown-item").forEach(item => {
+        item.addEventListener("click", () => {
+            const type = item.dataset.type;
+            searchByInput.textContent = item.textContent.trim();
+
+            document.getElementById("search-by-dropdown").querySelectorAll(".dropdown-item").forEach(i => {
+                i.style.display = "none";
+            })
+
+            if(type === "code"){
+                codeSection.style.display = "block";
+            }else{
+                routeSection.style.display = "block";
+            }
+
+            searchByDropdown.style.display = "none";
+        });
+    });
+
+    window.addEventListener("click", (e) => {
+        if(!e.target.closest(document.getElementsByClassName("search-by-picker"))){
+            searchByDropdown.style.display = "none";
+        }
+    });
+
+
 });

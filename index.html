@@ -30,7 +30,7 @@
                 Flight status
             </button>
         </div>
-        <div id="book-flights">
+        <div class="section-thing" id="book-flights">
             <div id="destination-select-container">
                 <div class="departure-picker">
                     <p>Leaving from</p>
@@ -95,7 +95,45 @@
             </div>
 
         </div>
-        <div id="check-in"></div>
+        <div class="section-thing" id="check-in">
+            <h1>Check-in & Bookings</h1>
+            <p>Online check-in opens <b>24 hours before departure</b>. You can view or edit your ticket and flight information here.</p>
+            <p>Please enter the information exactly as it appears on your ticket.</p>
+            <div id="booking-sections">
+                <div id="surname">
+                    <p>Surname</p>
+                    <input id="surname-input" placeholder="Enter your surname">
+                </div>
+                <div id="given-name">
+                    <p>Given Name(s)</p>
+                    <input id="given-name-input" placeholder="Enter your given name(s)">
+                </div>
+                <div id="booking-ref">
+                    <p>Booking Reference / E-ticket number</p>
+                    <input id="booking-ref-input" placeholder="Enter your booking reference/E-ticket number" maxlength="14">
+                    <small>A Booking Reference Number is a 6-character alphanumeric code that comes with your booking. Your e-ticket number is a 13-digit numeric code which comes with your e-ticket.</small>
+                </div>
+            </div>
+            <div id="booking-search-btn-container">
+                <div></div>
+                <button id="booking-search-btn">Find my booking</button>
+            </div>
+        </div>
+        <div class="section-thing" id="flight-status">
+            <h1>Flight status</h1>
+            <div class="search-by-picker">
+                <div id="search-by-input">Search by flight number</div>
+                <div id="search-by-dropdown" class="dropdown">
+                    <div class="dropdown-item" data-type="code">Search by flight number</div>
+                    <div class="dropdown-item" data-type="route">Search by route</div>
+                </div>
+            </div>
+
+            <div id="search-by-code">
+                <h1>OR</h1><input type="text" id="flight-number" placeholder="1234" autocomplete="off">
+
+            </div>
+        </div>
     </div>
 </div>
 <div id="body-2">

@@ -152,10 +152,10 @@ date-input{
     border-bottom: 2px solid #f6cdd5
 }
 
-#book-flights,
-#check-in{
+.section-thing{
     padding: 0 2rem 2rem;
     margin-top: 1rem;
+    display: none;
 }
 
 #selector button{
@@ -373,7 +373,8 @@ date-input{
     box-shadow: -10px 0 0 #EC3750 !important;
 }
 
-#search-btn{
+#search-btn,
+#check-in button{
     all: unset;
     background-color: #ec3750;
     color: #FCFCF7;
@@ -383,7 +384,8 @@ date-input{
     margin-right: 2vw;
 }
 
-#search-btn:hover{
+#search-btn:hover,
+#check-in button:hover{
     background-color: #d1394f;
 }
 
@@ -482,4 +484,59 @@ date-input{
     display: flex;
     align-items: center;
     gap: 0;
+}
+
+#book-flights{
+    display: block;
+}
+
+#check-in{
+    display: none;
+}
+
+#check-in h1,
+#flight-status h1{
+    color: #ec3750;
+    font-size: 3rem;
+    margin-top: 2.5rem;
+}
+
+#check-in p{
+    font-size: 1.5rem;
+    color: #555555;
+}
+
+#booking-sections p{
+    color: #ec3750;
+    margin: 0;
+}
+
+#booking-sections input{
+    all: unset;
+    width: 100%;
+    font-size: 2rem;
+    color: #EC3750;
+    background-color: #f4e8ea;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem
+}
+
+#booking-sections p{
+    font-size: 1.6rem;
+}
+
+#booking-search-btn-container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+#booking-sections small{
+    font-size: 1rem
+}
+
+#surname,
+#given-name,
+#booking-ref{
+    margin-bottom: 2rem;
 }
