@@ -71,7 +71,9 @@ body{
 .type-picker p,
 .class-picker p,
 .date-picker p,
-#flight-search-date-container p{
+#flight-search-date-container p,
+#status-departure p,
+#status-arrival p{
     margin-top: 1rem;
     margin-bottom: 0;
     line-height: 1.5rem;
@@ -131,7 +133,9 @@ date-input{
 #arrival-dropdown,
 #route-type-dropdown,
 #class-dropdown,
-#search-by-dropdown{
+#search-by-dropdown,
+#status-departure-dropdown,
+#status-arrival-dropdown{
     display: none;
     color: #ec3750;
     font-size: 1.3rem;
@@ -582,7 +586,9 @@ date-input{
 }
 
 #code-search-container input,
-#flight-search-shit input{
+#flight-search-shit input,
+#status-departure-input,
+#status-arrival-input{
     all:unset;
     font-size: 2.8rem;
     margin-left: 0.5rem;
@@ -607,4 +613,20 @@ date-input{
 
 #check-status{
     margin-right: 2vw;
+}
+
+#status-departure,
+#status-arrival{
+    position: relative;
+}
+
+#status-arrival-input,
+#status-departure-input{
+    cursor: pointer;
+    width: 80%;
+}
+
+.book-now{
+    color: #ec3750;
+    cursor: pointer;
 }

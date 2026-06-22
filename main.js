@@ -307,6 +307,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const codeSection = document.getElementById("search-by-code");
     const routeSection = document.getElementById("search-by-route");
 
+    routeSection.style.display = "none";
+
     searchByInput.addEventListener("click", ()=>{
         if(searchByDropdown.style.display === "block"){
             searchByDropdown.style.display = "none";
@@ -319,6 +321,9 @@ window.addEventListener('DOMContentLoaded', () => {
         item.addEventListener("click", () => {
             const type = item.dataset.type;
             searchByInput.textContent = item.textContent.trim();
+
+            codeSection.style.display = "none";
+            routeSection.style.display = "none";
 
             if(type === "code"){
                 codeSection.style.display = "block";
@@ -341,4 +346,19 @@ window.addEventListener('DOMContentLoaded', () => {
         showMonths: 1,
         dateFormat: "d M Y"
     });
+
+    airportSelector("status-departure-input", "status-departure-dropdown", ".status-departure");
+    airportSelector("status-arrival-input", "status-arrival-dropdown", ".status-arrival");
+
+    document.querySelectorAll(".book-now").forEach(button => {
+        button.addEventListener("click", () => {
+            const val = button.dataset.location;
+            const arrivalSearch = document.getElementById('arrival-search');
+
+            arrivalSearch.value = val;
+            document.getElementById("body").scrollIntoView({
+                behavior: "smooth"
+            });
+        })
+    })
 });

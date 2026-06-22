@@ -134,7 +134,19 @@
                     <p>OR<input type="text" id="flight-number" placeholder="1234" autocomplete="off"></p>
                 </div>
             </div>
-            <div id="search-by-route"></div>
+            <div id="search-by-route">
+                <div id="status-departure" class="status-departure">
+                    <p>Flying from</p>
+                    <input id="status-departure-input" placeholder="Select Departure">
+                    <div id="status-departure-dropdown" class="dropdown"></div>
+                </div>
+                <div id="status-arrival" class="status-arrival">
+                    <p>Arriving to</p>
+                    <input id="status-arrival-input" placeholder="Select Arrival">
+                    <div id="status-arrival-dropdown" class="dropdown"></div>
+                </div>
+
+            </div>
             <div id="flight-search-shit">
                 <div id="flight-search-date-container">
                     <p>Departure date</p>
@@ -160,7 +172,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="PAR – Parmesan">Book now →</small>
             </div>
         </div>
         <div class="destination-card">
@@ -171,7 +183,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="JFK / LGA – New York, NY / All airports">Book now →</small>
             </div>
         </div>
         <div class="destination-card">
@@ -182,7 +194,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="SIN – Singapore">Book now →</small>
             </div>
         </div>
         <div class="destination-card">
@@ -193,7 +205,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="BTV – Burlington, VT">Book now →</small>
             </div>
         </div>
         <div class="destination-card">
@@ -204,7 +216,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="SFO – San Fransisco, CA">Book now →</small>
             </div>
         </div>
         <div class="destination-card">
@@ -215,7 +227,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="BOS – Boston, MA">Book now →</small>
             </div>
         </div>
         <div class="destination-card">
@@ -226,7 +238,7 @@
                 <small>Economy</small>
                 <p class="offer-price-line">from <span class="offer-price">$420</span></p>
                 <br>
-                <small>Book now →</small>
+                <small class="book-now" data-location="LAX – Los Angeles, CA">Book now →</small>
             </div>
         </div>
     </div>
