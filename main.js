@@ -320,10 +320,6 @@ window.addEventListener('DOMContentLoaded', () => {
             const type = item.dataset.type;
             searchByInput.textContent = item.textContent.trim();
 
-            document.getElementById("search-by-dropdown").querySelectorAll(".dropdown-item").forEach(i => {
-                i.style.display = "none";
-            })
-
             if(type === "code"){
                 codeSection.style.display = "block";
             }else{
@@ -335,10 +331,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener("click", (e) => {
-        if(!e.target.closest(document.getElementsByClassName("search-by-picker"))){
+        if(!e.target.closest(".search-by-picker")){
             searchByDropdown.style.display = "none";
         }
     });
 
-
+    flatpickr("#flight-search-date", {
+        mode: "single",
+        showMonths: 1,
+        dateFormat: "d M Y"
+    });
 });

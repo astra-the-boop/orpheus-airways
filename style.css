@@ -70,7 +70,8 @@ body{
 .arrival-picker p,
 .type-picker p,
 .class-picker p,
-.date-picker p{
+.date-picker p,
+#flight-search-date-container p{
     margin-top: 1rem;
     margin-bottom: 0;
     line-height: 1.5rem;
@@ -129,7 +130,8 @@ date-input{
 #departure-dropdown,
 #arrival-dropdown,
 #route-type-dropdown,
-#class-dropdown{
+#class-dropdown,
+#search-by-dropdown{
     display: none;
     color: #ec3750;
     font-size: 1.3rem;
@@ -197,7 +199,8 @@ date-input{
 .departure-picker,
 .arrival-picker,
 .type-picker,
-.class-picker{
+.class-picker,
+.search-by-picker{
     position: relative;
 }
 
@@ -374,7 +377,8 @@ date-input{
 }
 
 #search-btn,
-#check-in button{
+#check-in button,
+#check-status{
     all: unset;
     background-color: #ec3750;
     color: #FCFCF7;
@@ -385,7 +389,8 @@ date-input{
 }
 
 #search-btn:hover,
-#check-in button:hover{
+#check-in button:hover,
+#check-status:hover{
     background-color: #d1394f;
 }
 
@@ -539,4 +544,67 @@ date-input{
 #given-name,
 #booking-ref{
     margin-bottom: 2rem;
+}
+
+#search-by-dropdown{
+    height: 5rem;
+}
+
+#search-by-input{
+    font-size: 1.5rem;
+    color: #EC3750;
+    background-color: #f4e1e4;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#search-by-input::after{
+    content: "▾"
+}
+
+.search-by-picker{
+    width: 50%;
+}
+
+#code-search-container{
+    display: flex;
+    align-items: center;
+}
+
+#code-search-container p{
+    font-size: 2.8rem;
+    color: #ec3750;
+    margin: 0;
+}
+
+#code-search-container input,
+#flight-search-shit input{
+    all:unset;
+    font-size: 2.8rem;
+    margin-left: 0.5rem;
+    color: #EC3750;
+}
+
+#search-by-code p.label{
+    font-size: 1.3rem;
+    margin: 0;
+    color: #ec3750;
+}
+
+#search-by-code{
+    margin: 2rem 0;
+}
+
+#check-status-btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto 1rem;
+}
+
+#check-status{
+    margin-right: 2vw;
 }
