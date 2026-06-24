@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'Phantom Sans';
+    src:
+            url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')
+            format('woff'),
+            url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2')
+            format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Phantom Sans';
+    src:
+            url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')
+            format('woff'),
+            url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2')
+            format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Phantom Sans';
+    src:
+            url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')
+            format('woff'),
+            url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2')
+            format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    margin: 0;
+}
+
+#header{
+    font-family: 'Phantom Sans', sans-serif;
+    background: #EC3750 linear-gradient(72deg, rgba(236, 55, 80, 1) 0%, #57030F 100%);
+    padding: 1rem 2rem;
+    font-size: 3rem;
+    line-height: 0;
+    font-weight: bold;
+    color: white;
+
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    height: 5rem;
+}
+
+#banner-thing-idk{
+    font-family: "Phantom Sans", sans-serif;
+    background: #E3848F;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
+
+#banner-thing-idk button{
+    all: unset;
+    font-family: "Phantom Sans", sans-serif;
+    background-color: #fcfcf7;
+    padding: 0.75rem 1rem;
+    border: 3px solid #ec3750;
+    color: #ec3750;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#banner-thing-idk button:hover,
+#banner-thing-idk button:focus,
+#banner-thing-idk button:active{
+    background-color: #eaeae4;
+}
+
+#banner-thing-idk h2{
+    color: #FCFCF7;
+    font-size: 2rem;
+}
+
+#banner-thing-idk p{
+    color: #fcfcf7;
+    font-size: 2rem;
+}
+
+#banner-thing-idk a{
+    text-decoration: none;
+}
+
+#body{
+    height: 80vh;
+    background: #fcfcf7 linear-gradient(118deg, #f1bfc4 0%, #e3848f 100%);
+    position: relative;
+}
+
+#main{
+    display: none;
+}
+
+#flights{
+    font-family: "Phantom Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#no-flights h2{
+    color: #57030f;
+    margin: 1.5rem 0 0 0;
+    font-size: 2.5rem;
+}
+
+#no-flights p{
+    color: #57030f;
+    font-size: 1.5rem;
+}
+
+#no-flights img{
+    width: 15rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#no-flights a{
+    text-decoration: none;
+}
+
+#no-flights button{
+    all: unset;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fcfcf7;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Phantom Sans", sans-serif;
+    background-color: #ec3750;
+    border: 3px solid #d6d6c8;
+    cursor: pointer;
+}
+
+#no-flights button:hover,
+#no-flights button:focus,
+#no-flights button:active{
+    background-color: #cc2c42;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #57030f;
+    color: #fcfcf7;
+    font-family: "Phantom Sans", sans-serif;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+
+#footer-logo img{
+    height: 4rem;
+    margin-right: -1rem;
+}
+
+#footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 0;
+}

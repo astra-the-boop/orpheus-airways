@@ -216,6 +216,10 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    let adultsNo = 1;
+    let childrenNo = 0;
+    let infantsNo = 0;
+
     document.getElementById("class-done-btn").addEventListener("click", () => {
         const adults = Number(document.getElementById("adult-count").value);
         const children = Number(document.getElementById("children-count").value);
@@ -223,7 +227,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const passengers = adults + children + infants;
 
-        classInput.textContent = `${cabin}, ${passengers} Passenger${passengers !== 1 ? "s" : ""}`
+        classInput.textContent = `${cabin}, ${passengers} Passenger${passengers !== 1 ? "s" : ""}`;
+
+        adultsNo = adults;
+        childrenNo = children;
+        infantsNo = infants;
 
         classDropdown.style.display = "none";
     });
@@ -360,5 +368,128 @@ window.addEventListener('DOMContentLoaded', () => {
                 behavior: "smooth"
             });
         })
+    });
+
+    function parseDate(date){
+        const months = {
+            Jan: "01",
+            Feb: "02",
+            Mar: "03",
+            Apr: "04",
+            May: "05",
+            Jun: "06",
+            Jul: "07",
+            Aug: "08",
+            Sep: "09",
+            Oct: "10",
+            Nov: "11",
+            Dec: "12",
+        }
+
+        const [day,month,year] = date.split("-");
+        return `${year}-${months[month]}-${day.padStart(2, "0")}`
+    }
+
+    document.getElementById("search-btn").addEventListener("click", (e) => {
+        const departureSearch = document.getElementById("departure-search");
+        const arrivalSearch = document.getElementById("arrival-search");
+        const dateInput = document.getElementById("date-input");
+        const routeType = routeInput === "Round trip" ? "round" : "one";
+        let dateFrom;
+        let dateTo;
+
+        try{
+            const fromCode = String(departureSearch.value.split(" – ")[0]).trim();
+            const fromCodeParsed = fromCode.replaceAll(" / ", "_").trim();
+            const fromName = String(departureSearch.value.split(" – ")[1]).trim();
+
+            const toCode = String(arrivalSearch.value.split(" – ")[0]).trim();
+            const toCodeParsed = toCode.replaceAll(" / ", "_").trim();
+            const toName = String(arrivalSearch.value.split(" – ")[1]).trim();
+
+            const fromAirport = airports.find(
+                airport => airport.iata === fromCode && airport.name === fromName
+            );
+
+            const toAirport = airports.find(
+                airport => airport.iata === toCode && airport.name === toName
+            );
+
+            console.log(dateInput.value.split("  to  ").length);
+            if(dateInput.value.split("  to  ").length === 2){
+                dateFrom = dateInput.value.split("  to  ")[0].trim();
+                dateTo = dateInput.value.split("  to  ")[1].trim();
+            }else{
+                if(routeType === "round"){
+                    dateFrom = dateInput.value.split("  to  ")[0].trim();
+                    dateTo = dateInput.value.split("  to  ")[0].trim();
+                }else{
+                    dateFrom = dateInput.value.split("  to  ")[0].trim();
+                    dateTo = "n-a";
+                }
+            }
+
+            const dateFromParsed = parseDate(dateFrom);
+            const dateToParsed = dateTo === "n-a" ? "n-a" : parseDate(dateTo);
+
+            // console.log(fromAirport);
+            // console.log(toAirport);
+            //
+            // console.log(fromCode);
+            // console.log(fromName);
+            // console.log(toCode);
+            // console.log(toName);
+            // console.log(adultsNo);
+            // console.log(childrenNo);
+            // console.log(infantsNo);
+
+            if(fromAirport && toAirport){
+                if(dateInput.value.trim()){
+                    const params = new URLSearchParams({
+                        from: fromCodeParsed,
+                        to: toCodeParsed,
+                        type: routeType,
+                        adults: adultsNo,
+                        children: childrenNo,
+                        infants: infantsNo,
+                        cabin: cabin.trim().toLowerCase().replaceAll(" ", "-"),
+                        date_from: dateFromParsed,
+                        date_to: dateToParsed
+                    });
+
+                    window.location.href = `./flights?${params.toString()}`;
+                }else{
+                    alert("Please enter a valid date")
+                }
+            }else{
+                alert("Please enter a valid airport")
+            }
+        }catch(e){
+            console.log(e);
+            alert("Please enter all fields");
+        }
+    });
+
+    document.getElementById("booking-search-btn").addEventListener("click", () => {
+        const surnameInput = document.getElementById("surname-input");
+        const givenNameInput = document.getElementById("given-name-input");
+        const bookingRefInput = document.getElementById("booking-ref-input");
+
+        if(surnameInput.value.trim() && givenNameInput.value.trim() && bookingRefInput.value.trim()){
+            if(bookingRefInput.value.trim().length === 13 || bookingRefInput.value.trim().length === 14 || bookingRefInput.value.trim().length === 6){
+                const params = new URLSearchParams({
+                    surname: surnameInput.value.trim().toUpperCase(),
+                    given_name: givenNameInput.value.trim().toUpperCase(),
+                    booking_ref: bookingRefInput.value.trim().toUpperCase(),
+                });
+
+                window.location.href = `./bookings?${params.toString()}`;
+            }else{
+                alert("Please enter a valid booking reference number or e-ticket number");
+            }
+        }
+        else{
+            alert("Please enter all fields");
+        }
     })
 });
