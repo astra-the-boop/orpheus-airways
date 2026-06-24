@@ -103,7 +103,7 @@ body{
     display: none;
 }
 
-#flights{
+#no-flights{
     font-family: "Phantom Sans", sans-serif;
     display: flex;
     flex-direction: column;

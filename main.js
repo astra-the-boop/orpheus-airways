@@ -386,15 +386,16 @@ window.addEventListener('DOMContentLoaded', () => {
             Dec: "12",
         }
 
-        const [day,month,year] = date.split("-");
+        const [day,month,year] = date.split(" ");
         return `${year}-${months[month]}-${day.padStart(2, "0")}`
     }
 
     document.getElementById("search-btn").addEventListener("click", (e) => {
+        e.preventDefault();
         const departureSearch = document.getElementById("departure-search");
         const arrivalSearch = document.getElementById("arrival-search");
         const dateInput = document.getElementById("date-input");
-        const routeType = routeInput === "Round trip" ? "round" : "one";
+        const routeType = routeInput.value === "Round trip" ? "round" : "one";
         let dateFrom;
         let dateTo;
 
@@ -457,7 +458,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         date_to: dateToParsed
                     });
 
-                    window.location.href = `./flights?${params.toString()}`;
+                    window.location.href = `./flights/?${params.toString()}`;
                 }else{
                     alert("Please enter a valid date")
                 }
@@ -470,7 +471,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById("booking-search-btn").addEventListener("click", () => {
+    document.getElementById("booking-search-btn").addEventListener("click", (e) => {
+        e.preventDefault();
         const surnameInput = document.getElementById("surname-input");
         const givenNameInput = document.getElementById("given-name-input");
         const bookingRefInput = document.getElementById("booking-ref-input");
@@ -483,7 +485,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     booking_ref: bookingRefInput.value.trim().toUpperCase(),
                 });
 
-                window.location.href = `./bookings?${params.toString()}`;
+                window.location.href = `./bookings/?${params.toString()}`;
             }else{
                 alert("Please enter a valid booking reference number or e-ticket number");
             }
@@ -494,16 +496,53 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById("check-status").addEventListener("click", (e) => {
+        e.preventDefault();
         const searchBy = document.getElementById("search-by-input");
         const statusDepartureInput = document.getElementById("status-departure-input");
         const statusArrivalInput = document.getElementById("status-arrival-input");
         const flightNoInput = document.getElementById("flight-number");
         const dateInput = document.getElementById("flight-search-date");
 
-        console.log("sdasfd")
+        const searchByParsed = searchBy.innerText.split("Search by ")[1].toLowerCase().trim().replaceAll(" ", "_");
 
         if(dateInput.value.trim() && ((statusDepartureInput.value.trim() && statusArrivalInput.value.trim() && searchBy.innerText.trim() === "Search by route") || (flightNoInput.value.trim() && searchBy.innerText.trim() === "Search by flight number"))){
+            if(searchByParsed === "flight-number"){
+                const params = new URLSearchParams({
+                    search_by: searchByParsed,
+                    code: `OR${flightNoInput.value.trim()}`,
+                    date: parseDate(dateInput.value.trim())
+                });
+                window.location.href = `./status/?${params.toString()}`;
+            }else{
+                const fromCode = String(statusDepartureInput.value.split(" – ")[0]).trim();
+                const fromCodeParsed = fromCode.replaceAll(" / ", "_").trim();
+                const fromName = String(statusDepartureInput.value.split(" – ")[1]).trim();
 
+                const toCode = String(statusArrivalInput.value.split(" – ")[0]).trim();
+                const toCodeParsed = toCode.replaceAll(" / ", "_").trim();
+                const toName = String(statusArrivalInput.value.split(" – ")[1]).trim();
+
+                const fromAirport = airports.find(
+                    airport => airport.iata === fromCode && airport.name === fromName
+                );
+
+                const toAirport = airports.find(
+                    airport => airport.iata === toCode && airport.name === toName
+                );
+
+                if(fromAirport && toAirport){
+                    const params = new URLSearchParams({
+                        search_by: searchByParsed,
+                        date: parseDate(dateInput.value.trim()),
+                        from: fromCodeParsed,
+                        to: toCodeParsed
+                    });
+
+                    window.location.href = `./status/?${params.toString()}`;
+                }else{
+                    alert("Please enter a valid airport");
+                }
+            }
         }else{
             alert("Please enter all fields");
         }
