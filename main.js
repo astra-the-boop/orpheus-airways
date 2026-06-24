@@ -395,7 +395,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const departureSearch = document.getElementById("departure-search");
         const arrivalSearch = document.getElementById("arrival-search");
         const dateInput = document.getElementById("date-input");
-        const routeType = routeInput.value === "Round trip" ? "round" : "one";
+        const routeType = routeInput.innerText.trim() === "Round trip" ? "round" : "one";
         let dateFrom;
         let dateTo;
 
