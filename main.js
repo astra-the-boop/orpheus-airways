@@ -506,7 +506,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const searchByParsed = searchBy.innerText.split("Search by ")[1].toLowerCase().trim().replaceAll(" ", "_");
 
         if(dateInput.value.trim() && ((statusDepartureInput.value.trim() && statusArrivalInput.value.trim() && searchBy.innerText.trim() === "Search by route") || (flightNoInput.value.trim() && searchBy.innerText.trim() === "Search by flight number"))){
-            if(searchByParsed === "flight-number"){
+            if(searchByParsed === "flight_number"){
                 const params = new URLSearchParams({
                     search_by: searchByParsed,
                     code: `OR${flightNoInput.value.trim()}`,
@@ -540,6 +540,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                     window.location.href = `./status/?${params.toString()}`;
                 }else{
+                    console.log(searchByParsed);
                     alert("Please enter a valid airport");
                 }
             }

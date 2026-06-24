@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', ()=> {
     const params = new URLSearchParams(window.location.search);
 
-    const from = params.get("from");
-    const to = params.get("to");
+    const from = params.get("from").replaceAll("_", "/");
+    const to = params.get("to").replaceAll("_", "/");
     const type = params.get("type");
 
     const adults = params.get("adults");
