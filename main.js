@@ -491,5 +491,21 @@ window.addEventListener('DOMContentLoaded', () => {
         else{
             alert("Please enter all fields");
         }
-    })
+    });
+
+    document.getElementById("check-status").addEventListener("click", (e) => {
+        const searchBy = document.getElementById("search-by-input");
+        const statusDepartureInput = document.getElementById("status-departure-input");
+        const statusArrivalInput = document.getElementById("status-arrival-input");
+        const flightNoInput = document.getElementById("flight-number");
+        const dateInput = document.getElementById("flight-search-date");
+
+        console.log("sdasfd")
+
+        if(dateInput.value.trim() && ((statusDepartureInput.value.trim() && statusArrivalInput.value.trim() && searchBy.innerText.trim() === "Search by route") || (flightNoInput.value.trim() && searchBy.innerText.trim() === "Search by flight number"))){
+
+        }else{
+            alert("Please enter all fields");
+        }
+    });
 });
