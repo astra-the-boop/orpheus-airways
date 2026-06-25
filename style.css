@@ -776,6 +776,7 @@ date-input{
 
     #class-dropdown{
         width: 60vw;
+        height: 80vh;
     }
 
     .class-btns{
@@ -786,5 +787,28 @@ date-input{
     .number-adj-btn{
         font-size: 1rem;
         padding: 0.1rem;
+    }
+
+    #adults-pass,
+    #infant-pass,
+    #child-pass{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .class-btns{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .idfk{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #class-dropdown label{
+        margin: 0;
     }
 }
