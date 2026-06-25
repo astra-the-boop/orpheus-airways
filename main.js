@@ -169,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     mode: "single",
                     minDate: "today",
                     dateFormat: "d M Y",
-                    showMonths: 2,
+                    showMonths: window.matchMedia("(max-width: 767px)").matches ? 1 : 2,
                     locale: {
                         rangeSeparator: "  to  "
                     }
@@ -181,7 +181,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     mode: "range",
                     minDate: "today",
                     dateFormat: "d M Y",
-                    showMonths: 2,
+                    showMonths: window.matchMedia("(max-width: 767px)").matces ? 1 : 2,
                     locale: {
                         rangeSeparator: "  to  "
                     }
@@ -281,7 +281,7 @@ window.addEventListener('DOMContentLoaded', () => {
         mode: "range",
         minDate: "today",
         dateFormat: "d M Y",
-        showMonths: 2,
+        showMonths: window.matchMedia("(max-width: 767px").matches ? 1 : 2,
         locale: {
             rangeSeparator: "  to  "
         }
