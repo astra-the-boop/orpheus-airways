@@ -164,7 +164,7 @@ date-input{
     display: none;
 }
 
-#selector button{
+.tab-selector{
     all: unset;
     cursor: pointer;
     background-color: #f4aab5;
@@ -629,4 +629,162 @@ date-input{
 .book-now{
     color: #ec3750;
     cursor: pointer;
+}
+
+@media (max-width: 767px){
+    #header-logo-text{
+        display: none;
+    }
+
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #banner{
+        display: none;
+    }
+
+    .tab-selector{
+        width: auto;
+        border-bottom: 3px solid #fcfcf7;
+        border-radius: 1rem 1rem 1rem 1rem;
+        margin: 0;
+    }
+
+    .tab-selector.active{
+        border-bottom: 3px solid #EC3750;
+    }
+
+    #selector{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    #body{
+        padding: 0;
+    }
+
+    #container{
+        border-radius: 0;
+    }
+
+    #logo{
+        height: 3rem;
+    }
+
+    #header{
+        padding: 0.5rem;
+    }
+
+    #destination-select-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .departure-picker,
+    .arrival-picker{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .type-picker{
+        margin-top: 2rem;
+    }
+
+    .departure-picker p,
+    .arrival-picker p,
+    .type-picker p,
+    .class-picker p{
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    #departure-search,
+    #arrival-search,
+    #route-type-input,
+    #class-input{
+        width: 100%;
+        font-size: 2.6rem;
+        border-right: none;
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    #swap-locations{
+        margin-top: 1rem;
+    }
+
+    #flight-type{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .gap-block{
+        display: none;
+    }
+
+    #body-2 h1{
+        font-size: 2rem;
+    }
+
+    .destination-card img{
+        height: 8rem
+    }
+
+    .text-part{
+        padding: 1rem;
+    }
+
+    .text-part p{
+        font-size: 1.5rem;
+    }
+
+    .text-part br{
+        line-height: 0;
+        font-size: 0;
+    /*    HOW THE FUCK DO I CONTROL THE HEIGHT OF A BR ELEMENT*/
+        margin: 0;
+        padding: 0;
+    /*    i give up.*/
+    }
+
+    .text-part small{
+        line-height:1.5rem;
+        font-size: 1.1rem;
+    }
+
+    #latest-offers{
+        padding: 0;
+        flex-direction: column
+    }
+
+    #footer-logo h1{
+        display: none;
+    }
+
+    #footer{
+        font-size: 0.8rem;
+    }
+
+    #class-dropdown{
+        width: 60vw;
+    }
+
+    .class-btns{
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+
+    .number-adj-btn{
+        font-size: 1rem;
+        padding: 0.1rem;
+    }
 }
