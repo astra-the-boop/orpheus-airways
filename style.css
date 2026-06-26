@@ -789,7 +789,7 @@ date-input{
         padding: 0.1rem;
     }
 
-    #adults-pass,
+    #adult-pass,
     #infant-pass,
     #child-pass{
         display: flex;
@@ -810,5 +810,58 @@ date-input{
 
     #class-dropdown label{
         margin: 0;
+    }
+
+    #check-in h1,
+    #flight-status h1{
+        font-size: 2.5rem;
+        margin-top: 1rem;
+    }
+
+    #check-in p{
+        font-size: 1.2rem;
+    }
+
+    #booking-sections input{
+        font-size: 1rem;
+    }
+
+    #booking-sections small{
+        font-size: 0.8rem;
+    }
+
+    #search-by-input{
+        width: 80vw;
+        margin-left: -6vw;
+        margin-right: auto;
+    }
+
+    .search-by-picker{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #flight-status{
+        padding: 0.5rem !important;
+    }
+
+    #flight-number{
+        width: 40vw !important;
+    }
+
+    #code-search-container{
+        padding-left: 1rem;
+    }
+
+    #status-departure-input,
+    #status-arrival-input{
+        width: 100%;
+        font-size: 2rem;
+    }
+
+    #status-departure p,
+    #status-arrival p{
+        font-size: 1.2rem;
     }
 }

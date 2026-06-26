@@ -121,43 +121,46 @@
         </div>
         <div class="section-thing" id="flight-status">
             <h1>Flight status</h1>
-            <div class="search-by-picker">
-                <div id="search-by-input">Search by flight number</div>
-                <div id="search-by-dropdown" class="dropdown">
-                    <div class="dropdown-item" data-type="code">Search by flight number</div>
-                    <div class="dropdown-item" data-type="route">Search by route</div>
+            <div id="flight-status-body">
+                <div class="search-by-picker">
+                    <div id="search-by-input">Search by flight number</div>
+                    <div id="search-by-dropdown" class="dropdown">
+                        <div class="dropdown-item" data-type="code">Search by flight number</div>
+                        <div class="dropdown-item" data-type="route">Search by route</div>
+                    </div>
                 </div>
-            </div>
-            <div id="search-by-code">
-                <p class="label">Flight code</p>
-                <div id="code-search-container">
-                    <p>OR<input type="text" id="flight-number" placeholder="1234" autocomplete="off" maxlength="4"></p>
+                <div id="search-by-code">
+                    <p class="label">Flight code</p>
+                    <div id="code-search-container">
+                        <p>OR<input type="text" id="flight-number" placeholder="1234" autocomplete="off" maxlength="4"></p>
+                    </div>
                 </div>
-            </div>
-            <div id="search-by-route">
-                <div id="status-departure" class="status-departure">
-                    <p>Flying from</p>
-                    <input id="status-departure-input" placeholder="Select Departure">
-                    <div id="status-departure-dropdown" class="dropdown"></div>
-                </div>
-                <div id="status-arrival" class="status-arrival">
-                    <p>Arriving to</p>
-                    <input id="status-arrival-input" placeholder="Select Arrival">
-                    <div id="status-arrival-dropdown" class="dropdown"></div>
-                </div>
+                <div id="search-by-route">
+                    <div id="status-departure" class="status-departure">
+                        <p>Flying from</p>
+                        <input id="status-departure-input" placeholder="Select Departure">
+                        <div id="status-departure-dropdown" class="dropdown"></div>
+                    </div>
+                    <div id="status-arrival" class="status-arrival">
+                        <p>Arriving to</p>
+                        <input id="status-arrival-input" placeholder="Select Arrival">
+                        <div id="status-arrival-dropdown" class="dropdown"></div>
+                    </div>
 
-            </div>
-            <div id="flight-search-shit">
-                <div id="flight-search-date-container">
-                    <p>Departure date</p>
-                    <input id="flight-search-date" placeholder="Select date">
                 </div>
-                <div id="check-status-btn-container">
-                    <div></div>
-                    <button id="check-status">Check status</button>
-                </div>
+                <div id="flight-search-shit">
+                    <div id="flight-search-date-container">
+                        <p>Departure date</p>
+                        <input id="flight-search-date" placeholder="Select date" type="text">
+                    </div>
+                    <div id="check-status-btn-container">
+                        <div></div>
+                        <button id="check-status">Check status</button>
+                    </div>
 
+                </div>
             </div>
+
         </div>
     </div>
 </div>
