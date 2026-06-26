@@ -177,3 +177,89 @@ body{
     align-items: center;
     gap: 0;
 }
+
+@media (max-width: 767px){
+    #header span{
+        display: none;
+    }
+
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    #header img{
+        height: 3rem;
+    }
+
+    #date p{
+        margin: 0;
+    }
+
+    #banner-thing-idk{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #banner-thing-idk{
+        gap: 0.5rem;
+    }
+
+    #banner-thing-idk button{
+        font-size: 1.3rem;
+        padding: 0.3rem 1rem;
+        border: 2px solid #ec3750;
+    }
+
+    #banner-thing-idk h2{
+        margin: 0;
+    }
+
+    #flight-search h2{
+        font-size: 1.5rem;
+    }
+
+    #date p{
+        font-size: 1.5rem;
+    }
+
+    #flight-search-date{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 0.5rem;
+    }
+
+    #body{
+        height: 90vh;
+    }
+
+    #no-flights img{
+        width: 10rem;
+    }
+
+    #no-flights h2{
+        width: 80vw;
+        font-size: 2rem;
+    }
+
+    #no-flights p{
+        font-size: 1.3rem;
+    }
+
+    #no-flights button{
+        font-size: 1.3rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid #f7f7fc;
+    }
+
+    #footer h1{
+        display: none;
+    }
+
+    #footer{
+        font-size: 1rem
+    }
+}

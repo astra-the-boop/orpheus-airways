@@ -864,4 +864,8 @@ date-input{
     #status-arrival p{
         font-size: 1.2rem;
     }
+
+    #container{
+        background: linear-gradient(1deg, rgba(252, 252, 247, 1) 75%, rgba(250, 102, 122, 1) 100%);
+    }
 }

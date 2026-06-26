@@ -90,7 +90,7 @@ body{
     color: #fcfcf7;
 }
 
-#banner-thing-idk button{
+#back{
     all: unset;
     font-family: "Phantom Sans", sans-serif;
     background-color: #FCFCF7;
@@ -134,7 +134,7 @@ body{
     font-size: 1.5rem;
 }
 
-#no-flights button{
+#back-no-flights{
     all: unset;
     margin-left: auto;
     margin-right: auto;
@@ -187,4 +187,94 @@ body{
     display: flex;
     align-items: center;
     gap: 0;
+}
+
+@media(max-width: 767px){
+    #logo-text{
+        display: none;
+    }
+
+    #logo{
+        height: 3rem;
+    }
+
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    #banner-thing-idk{
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    #locations h2{
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #locations{
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        font-size: 1.2rem;
+    }
+
+    #date{
+        font-size: 1.3rem;
+    }
+
+    #type{
+        font-size: 1.3rem;
+    }
+
+    #back{
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid #EC3750;
+    }
+
+    #body{
+        height: 90vh;
+        padding: 0;
+    }
+
+    #orph-pf{
+        width: 10rem;
+    }
+
+    #no-flights h2{
+        font-size: 2rem;
+        width: 80vw
+    }
+
+    #no-flights p{
+        font-size: 1.3rem;
+    }
+
+    #back-no-flights{
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid #fcfcf7;
+    }
+
+    #footer-logo h1{
+        display: none;
+    }
+
+    #footer{
+        font-size: 0.8rem;
+    }
+}
+
+#date-type{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
 }
