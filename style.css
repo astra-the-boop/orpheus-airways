@@ -763,7 +763,9 @@ date-input{
 
     #latest-offers{
         padding: 0;
-        flex-direction: column
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     #footer-logo h1{
@@ -867,5 +869,13 @@ date-input{
 
     #container{
         background: linear-gradient(1deg, rgba(252, 252, 247, 1) 75%, rgba(250, 102, 122, 1) 100%);
+    }
+
+    .destination-card{
+        width: 100%;
+    }
+
+    .destination-card img{
+        width: 100%;
     }
 }
